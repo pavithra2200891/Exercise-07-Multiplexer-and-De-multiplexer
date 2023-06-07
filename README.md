@@ -48,41 +48,91 @@ If the control input changes to AB = 10, then all the gates are restricted excep
  
 ### Procedure
 /* write all the steps invloved */
+Start the module using module projname(). Declare the inputs and outputs along with the
+select lines according to the multiplexer and demultiplexer. Use wire to assign intermediate
+outputs. Use and,or and not gates to get the desired output. End the module. Generate RTL
+realization and timing diagrams.
+
+Program for flipflops and verify its truth table in quartus using Verilog
+programming.
 
 
 
 ### PROGRAM 
 /*
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+Developed by: PAVITHRA Y
+RegisterNumber: 212222050043 
 */
+program
 
 
+module mux(I0,I1,I2,I3,S0,S1,Y);
+input I0,I1,I2,I3,S0,S1;
+output Y;
+wire S0C,S1C;
+not(S0C,S0);
+not(S1C,S1);
+wire P,Q,R,S;
+and(P,S0C,S1C,I0);
+and(Q,S0C,S1,I1);
+and(R,S0,S1C,I2);
+and(S,S0,S1,I3);
+or(Y,P,Q,R,S);
+endmodule
+Program for 1X4 DeMultiplexer and verify its truth table in quartus using Verilog
+programming.
+PROGRAM:
 
-
-
+module demux(I,S0,S1,Y0,Y1,Y2,Y3);
+input I,S0,S1;
+output Y0,Y1,Y2,Y3;
+wire S0C,S1C;
+not(S0C,S0);
+not(S1C,S1);
+and(Y0,I,S0C,S1C);
+and(Y1,I,S0C,S1);
+and(Y2,I,S0,S1C);
+and(Y3,I,S0,S1);
+endmodule
 
 ### RTL LOGIC  
 
-
-
+MULTIPLEXER
+![image](https://github.com/pavithra2200891/Exercise-07-Multiplexer-and-De-multiplexer/assets/128951583/c30ffd98-9955-41ec-9578-8a6eb0132c5a)
+ DE-MULTIPLEXER
+![image](https://github.com/pavithra2200891/Exercise-07-Multiplexer-and-De-multiplexer/assets/128951583/dc320951-7ec3-4498-9c8b-cb12b83dc688)
 
 
 
 
 
 ### TIMING DIGRAMS  
+MULTIPLEXER
+
+![image](https://github.com/pavithra2200891/Exercise-07-Multiplexer-and-De-multiplexer/assets/128951583/bcdc0fd9-5546-43ce-9c3e-9be7c05b3614)
+![image](https://github.com/pavithra2200891/Exercise-07-Multiplexer-and-De-multiplexer/assets/128951583/1968c98d-b546-430c-9a59-8b5983c6e47d)
+![image](https://github.com/pavithra2200891/Exercise-07-Multiplexer-and-De-multiplexer/assets/128951583/e0e4725a-49e4-4d46-8c7b-aea473c3a931)
+
+DE-MULIPLEXER
+![image](https://github.com/pavithra2200891/Exercise-07-Multiplexer-and-De-multiplexer/assets/128951583/7e68aa56-122e-4124-b21c-5d53e6e7bbff)
 
 
 
 
 
 ### TRUTH TABLE 
+MULTIPLEXER:
+![image](https://github.com/pavithra2200891/Exercise-07-Multiplexer-and-De-multiplexer/assets/128951583/b291a06e-172b-410e-9376-5a57704437b7)
 
+DE-MULTIPLEXER:
+![image](https://github.com/pavithra2200891/Exercise-07-Multiplexer-and-De-multiplexer/assets/128951583/34f38e4c-7d5c-4fa7-ba88-de762f099655)
 
 
 
 
 
 ### RESULTS 
+Hence 4x1 Multiplexer and 1x4 Demultiplexer is been implemented and verified using
+verilog programming and its output are validated.
+
