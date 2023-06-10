@@ -68,32 +68,55 @@ program
 
 
 module mux(I0,I1,I2,I3,S0,S1,Y);
+
 input I0,I1,I2,I3,S0,S1;
+
 output Y;
+
 wire S0C,S1C;
+
 not(S0C,S0);
+
 not(S1C,S1);
+
 wire P,Q,R,S;
+
 and(P,S0C,S1C,I0);
+
 and(Q,S0C,S1,I1);
+
 and(R,S0,S1C,I2);
+
 and(S,S0,S1,I3);
+
 or(Y,P,Q,R,S);
+
 endmodule
+
 Program for 1X4 DeMultiplexer and verify its truth table in quartus using Verilog
 programming.
 PROGRAM:
 
 module demux(I,S0,S1,Y0,Y1,Y2,Y3);
+
 input I,S0,S1;
+
 output Y0,Y1,Y2,Y3;
+
 wire S0C,S1C;
+
 not(S0C,S0);
+
 not(S1C,S1);
+
 and(Y0,I,S0C,S1C);
+
 and(Y1,I,S0C,S1);
+
 and(Y2,I,S0,S1C);
+
 and(Y3,I,S0,S1);
+
 endmodule
 
 ### RTL LOGIC  
